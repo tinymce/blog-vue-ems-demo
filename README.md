@@ -4,12 +4,20 @@ This is a [Vue 3](https://vuejs.org/) project bootstrapped with [create-vue](htt
 
 ## Features
 
-- **Email Campaign Creator**: Simple form for composing emails with From, To, Subject, and Content fields
-- **Campaign Stats**: Display subscriber counts and average engagement metrics
-- **Email Templates**: Pre-built template options (Welcome Series, Promotional, Newsletter, Abandoned Cart)
-- **Audience Segmentation**: Target different subscriber segments (All, Active, Inactive, Premium)
-- **Send Scheduling**: Options to send immediately, schedule for later, or set up automation
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+**Functional:**
+
+- **Email Creator Form**: Simple form for composing emails with From, To, Subject, and Content fields
+
+**UI Mockups** (Demo sidebar interface - ready for your implementation):
+
+- **Campaign Stats**: Displays sample subscriber counts and engagement metrics
+- **Email Templates**: Visual selector for template options (Welcome Series, Promotional, Newsletter, Abandoned Cart)
+- **Audience Segmentation**: UI for targeting different subscriber segments (All, Active, Inactive, Premium)
+- **Send Scheduling**: Options to choose send timing (Now, Schedule, Automation)
+
+**Design:**
+
+- **Responsive Layout**: Works seamlessly on desktop and mobile devices
 - **Lavender & Red Theme**: Modern color scheme with gradients and smooth interactions
 
 ## Getting Started
@@ -46,6 +54,16 @@ src/
 ├── main.ts           # Application entry point
 └── styles.css        # Centralized styling
 ```
+
+## About the UI Mockups
+
+The sidebar contains demo UI elements with sample data to showcase what a full email marketing system could look like. These are **visual mockups only**—they don't connect to any backend. You can:
+
+- Click templates and segments to see the UI respond
+- Use these as a blueprint for building out real functionality
+- Wire them up to your own backend API or email service
+
+This is intentionally a **no-frills starting point** for you to build upon.
 
 ## Recommended IDE Setup
 
