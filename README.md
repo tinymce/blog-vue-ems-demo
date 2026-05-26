@@ -73,7 +73,7 @@ This is intentionally a **no-frills starting point** for you to build upon.
 
 ### Replacing the Textarea
 
-The email content field uses a plain `<textarea>` element. You can easily replace it with a rich text editor like [TinyMCE](https://www.tiny.cloud/), [Quill](https://quilljs.com/), or [Monaco Editor](https://microsoft.github.io/monaco-editor/).
+The email content field uses a plain `<textarea>` element. Follow the tutorial on [TinyMCE's blog](https://www.tiny.cloud/blog/) to add a rich text editor to your email marketing app.
 
 ### Integrating Email Service
 
