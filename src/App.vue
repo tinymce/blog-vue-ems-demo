@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import Editor from '@tinymce/tinymce-vue'
 
 const email = ref({
   from: '',
@@ -32,6 +33,58 @@ const stats = {
   clickRate: 3.2,
   unsubscribeRate: 0.8
 }
+
+const advtemplate_templates = [
+  {
+    title: 'Customer onboarding',
+    items: [
+      {
+        title: 'Welcome new subscriber',
+        content:
+          '<p><strong>Welcome to the Brightside community!</strong></p><p>Thanks for joining our list. You\'ll be the first to hear about fresh launches, limited offers, and behind-the-scenes updates.</p><p>Talk soon,<br />The Brightside Team 🌞</p>'
+      },
+      {
+        title: 'First purchase thank-you',
+        content:
+          '<p><strong>You did it, your order is on the way!</strong></p><p>Hi {{First Name}}, thank you for trusting Brightside with your first purchase. As a welcome gift, enjoy <strong>15% off</strong> your next order with code <span style="background-color:#fef3c7;padding:2px 6px;border-radius:4px;">HELLOAGAIN</span>.</p>'
+      }
+    ]
+  },
+  {
+    title: 'Promotions & launches',
+    items: [
+      {
+        title: 'Product launch spotlight',
+        content:
+          '<p><strong>Introducing the Glow Serum</strong></p><p>Meet the newest member of our skincare lineup: a vitamin C powerhouse that brightens, hydrates, and defends your skin in just one pump.</p>'
+      },
+      {
+        title: '72-hour flash sale',
+        content:
+          '<p><strong>72-Hour Flash Sale Starts Now!</strong></p><p>Gear up for the season with sitewide savings, <strong>up to 35% off</strong>.</p>'
+      }
+    ]
+  }
+]
+
+const mergetags_list = [
+  {
+    title: 'Customer',
+    menu: [
+      { value: 'First Name', title: 'First Name' },
+      { value: 'Company Name', title: 'Company Name' },
+      { value: 'Email Address', title: 'Email Address' }
+    ]
+  },
+  {
+    title: 'Compliance & Footer',
+    menu: [
+      { value: 'Unsubscribe Link', title: 'Unsubscribe' },
+      { value: 'Update Preferences', title: 'Update Preferences' },
+      { value: 'Company Address', title: 'Company Address' }
+    ]
+  }
+]
 
 const resetForm = () => {
   email.value = {
@@ -174,13 +227,22 @@ const selectSegment = (segmentId: string) => {
 
           <div class="form-group full-width">
             <label for="content">Content:</label>
-            <textarea
-              id="content"
+            <editor
+              api-key="pv55e7h13r9k5kdv7tehf4c1zwmzep2kt59byp0r6qsjadjm"
               v-model="email.content"
-              placeholder="Enter your email content here..."
-              rows="12"
-            ></textarea>
+              :init="{
+                height: 500,
+                menubar: false,
+                plugins:
+                  'mergetags advtemplate inlinecss fullpagehtml advlist autolink link image lists charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help wordcount',
+                toolbar:
+                  'mergetags inserttemplate | fullpagehtml undo redo | styles | bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent | link image | code preview',
+                advtemplate_templates,
+                mergetags_list
+              }"
+            />
           </div>
+
 
           <div class="button-group">
             <button type="button" class="btn btn-reset" @click="resetForm">Reset</button>
