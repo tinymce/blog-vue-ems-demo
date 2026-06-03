@@ -8,16 +8,8 @@ const email = ref({
   content: ''
 })
 
-const selectedTemplate = ref<string | null>(null)
 const selectedSegment = ref<string | null>(null)
 const sendTime = ref('now')
-
-const templates = [
-  { id: 'welcome', name: 'Welcome Series', emails: 3 },
-  { id: 'promo', name: 'Promotional', emails: 1 },
-  { id: 'newsletter', name: 'Newsletter', emails: 12 },
-  { id: 'abandoned', name: 'Abandoned Cart', emails: 2 }
-]
 
 const segments = [
   { id: 'all', name: 'All Subscribers', count: 12543 },
@@ -39,14 +31,6 @@ const resetForm = () => {
     to: '',
     subject: '',
     content: ''
-  }
-}
-
-const applyTemplate = (templateId: string) => {
-  selectedTemplate.value = templateId
-  const template = templates.find(t => t.id === templateId)
-  if (template) {
-    email.value.subject = `${template.name} - Draft`
   }
 }
 
@@ -79,23 +63,6 @@ const selectSegment = (segmentId: string) => {
           <div class="stat-item">
             <span class="stat-label">Avg. Click Rate</span>
             <span class="stat-value">{{ stats.clickRate }}%</span>
-          </div>
-        </div>
-
-        <!-- Templates -->
-        <div class="card">
-          <h3>Templates</h3>
-          <div class="template-list">
-            <button
-              v-for="template in templates"
-              :key="template.id"
-              @click="applyTemplate(template.id)"
-              :class="{ active: selectedTemplate === template.id }"
-              class="template-btn"
-            >
-              <span class="template-name">{{ template.name }}</span>
-              <span class="template-count">{{ template.emails }}</span>
-            </button>
           </div>
         </div>
 
